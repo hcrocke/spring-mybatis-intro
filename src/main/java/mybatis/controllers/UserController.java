@@ -1,9 +1,6 @@
 package mybatis.controllers;
 
 import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicLong;
-
-import mybatis.model.Greeting;
 import mybatis.model.User;
 import mybatis.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +10,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/users")
 public class UserController {
 
+    //instance variable for this class - functionally equal to UserService userService = new UserService
     @Autowired
     UserService userService;
 
-
-    //RequestMapping maps URLs to methods
+    @RequestMapping("/age")
+    public ArrayList<User> getUsers(@RequestParam(value="age") int age) {
+        return userService.getUserByAge(age);
+    }
 
     //Get
     @RequestMapping("/")
