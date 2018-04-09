@@ -38,6 +38,7 @@ public class UserController {
     }
 
     //Create
+    //in the request body is a user object in the form of Json
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public User addNew(@RequestBody User user) {
         return userService.addNew(user);

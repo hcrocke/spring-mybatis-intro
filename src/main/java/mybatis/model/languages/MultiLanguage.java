@@ -1,4 +1,4 @@
-package mybatis.controllers;
+package mybatis.model.languages;
 
 public class MultiLanguage {
 

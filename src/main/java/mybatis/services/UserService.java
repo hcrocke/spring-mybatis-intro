@@ -72,7 +72,7 @@ public class UserService {
 
                 User u = new User();
 
-                // set the instance vars of the User pojo to the resultSet values
+                // set the instance variables of the User pojo to the resultSet values
                 u.setId(resultSet.getInt("id"));
                 u.setFirst_name(resultSet.getString("first_name"));
                 u.setLast_name(resultSet.getString("last_name"));

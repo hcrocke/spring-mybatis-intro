@@ -25,7 +25,7 @@ public class NYTController {
     public NYTRoot searchNYT(@RequestParam(value ="query", defaultValue = "cats") String query,
     @RequestParam(value ="p", defaultValue = "true") boolean persist) {
 
-        return nytService.searchNYT(query, persist);
+        return nytService.searchNYT(query,persist);
     }
 
     @RequestMapping("/compare")

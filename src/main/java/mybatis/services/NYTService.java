@@ -23,7 +23,7 @@ public class NYTService {
 
     public NYTRoot searchNYT(String query, boolean persist) {
 
-        String fQuery = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + query + "&api-key=";
+        String fQuery = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + query + "&api-key=e9fbaf33815b4a82a3836895beb94893";
 
         NYTRoot response = restTemplate.getForObject(fQuery, NYTRoot.class);
 

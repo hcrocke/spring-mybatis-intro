@@ -7,15 +7,15 @@ import java.util.ArrayList;
 @Mapper
 public interface UserMapper {
 
-    String GET_ALL__ACTIVE_USERS = "SELECT * FROM `mybatis-test`.Users where isActive = 1";
-    String GET_BY_ID = "SELECT * FROM `mybatis-test`.Users where id = #{id}";
-    String INSERT_USER = "INSERT INTO `mybatis-test`.Users (first_name, last_name, isActive) " +
+    String GET_ALL__ACTIVE_USERS = "SELECT * FROM `mybatis_test`.Users where isActive = 1";
+    String GET_BY_ID = "SELECT * FROM `mybatis_test`.Users where id = #{id}";
+    String INSERT_USER = "INSERT INTO `mybatis_test`.Users (first_name, last_name, isActive) " +
             "VALUES (#{first_name}, #{last_name}, #{isActive})";
-    String UPDATE_USER = "UPDATE `mybatis-test`.Users SET first_name = #{first_name}, " +
+    String UPDATE_USER = "UPDATE `mybatis_test`.Users SET first_name = #{first_name}, " +
             "last_name = #{last_name}, isActive = #{isActive} WHERE id = #{id}";
-    String DELETE_USER = "UPDATE `mybatis-test`.Users set isActive = 0 WHERE id = #{id}";
-    String GET_BY_NAME = "SELECT * FROM `mybatis-test`.Users where first_name = #{first_name}";
-    String CUSTOM_QUERY = "SELECT * FROM `mybatis-test`.Users where age = #{age}";
+    String DELETE_USER = "UPDATE `mybatis_test`.Users set isActive = 0 WHERE id = #{id}";
+    String GET_BY_NAME = "SELECT * FROM `mybatis_test`.Users where first_name = #{first_name}";
+    String CUSTOM_QUERY = "SELECT * FROM `mybatis_test`.Users where age = #{age}";
 
     @Select(CUSTOM_QUERY)
     public ArrayList<User> getUserbyAge(int age);

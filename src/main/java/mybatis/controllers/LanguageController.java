@@ -4,13 +4,12 @@ package mybatis.controllers;
  that will use the restTemplate to call the 3rd party API and map the response to the POJOs you created
  */
 
+import mybatis.model.User;
 import mybatis.model.languages.LanguageRoot;
-import mybatis.model.nyt.challenges.ResponseComparison;
+import mybatis.model.languages.MultiLanguage;
 import mybatis.services.LanguageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 
@@ -22,18 +21,34 @@ public class LanguageController {
     LanguageService languageService;
 
     @RequestMapping("/detect")
-    public LanguageRoot detectLanguage(@RequestParam(value = "words", defaultValue = "helloooo")String words) {
+    public LanguageRoot detectLanguage(@RequestParam(value = "words", defaultValue = "helloooo") String words, String apiKey) {
 
         LanguageRoot obj = languageService.detectLanguage(words);
         return obj;
     }
 
     @RequestMapping("/searchmultiple")
-    public MultiLanguage multiLanguages(@RequestParam(value = "language1", required = true) String language1,
-                                                @RequestParam(value = "language2", required = true) String language2) {
+    public MultiLanguage multiLanguages(@RequestParam(value = "t1", required = true) String t1,
+                                        @RequestParam(value = "t2", required = true) String t2,
+                                        @RequestParam(value = "p", required = true) boolean persist) {
 
-        return languageService.multiLanguages(language1,language2);
+        return languageService.multiLanguages(t1, t2, persist);
     }
+    //create
+    @RequestMapping(method = RequestMethod.POST, value = "/")
+    public MultiLanguage addNew(@RequestBody MultiLanguage multiLanguage) {
+        return languageService.insertLanguageInfo(multiLanguage);
 
+    }
+    //update
+    @RequestMapping(method = RequestMethod.PATCH, value = "/")
+    public MultiLanguage update(@RequestBody MultiLanguage multiLanguage) {
+        return languageService.updateInfo(multiLanguage);
+    }
+    //delete
+    @RequestMapping(method= RequestMethod.DELETE, value="/")
+    public User deleteById(@RequestParam(value="id")int id) {
+        return languageService.deleteById(id);
+    }
 
 }

@@ -6,6 +6,8 @@
     <groupId>org.springframework</groupId>
     <artifactId>mybatis-spring</artifactId>
     <version>0.1.0</version>
+    <!--package this as a war file-->
+    <packaging>war</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -14,6 +16,12 @@
     </parent>
 
     <dependencies>
+        <!--uncomment dependency below to deploy to remote tomcat server-->
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.boot</groupId>-->
+            <!--<artifactId>spring-boot-starter-tomcat</artifactId>-->
+            <!--<scope>provided</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
